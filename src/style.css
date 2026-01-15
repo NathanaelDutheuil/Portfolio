@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden; /* Pas de scroll */
+    background-color: #000;
+    font-family: 'Arial', sans-serif; /* Tu peux mettre une police Google Fonts ici */
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: 1; /* Le canvas est derrière */
+}
+
+/* --- L'INTERFACE HTML --- */
+.interface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* L'interface est devant */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* CACHÉ AU DÉPART */
+    opacity: 0;
+    pointer-events: none; /* Important : permet de cliquer sur l'ordi au travers */
+    color: white;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.menu {
+    display: flex;
+    gap: 50px; /* Espace entre les liens */
+}
+
+.menu-item {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 40px;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.menu-item:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 20px white; /* Petit effet néon CSS simple */
+}
+/* --- NAVBAR FIXE --- */
+        .fixed-navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; /* Toujours au-dessus */
+            mix-blend-mode: difference; /* Astuce pour être visible sur blanc ET noir */
+        }
+
+        .nav-logo {
+            font-size: 1.2rem; font-weight: bold; text-transform: uppercase;
+            text-decoration: none; color: white; letter-spacing: 2px;
+        }
+
+        .menu-toggle {
+            cursor: pointer; display: flex; align-items: center; gap: 10px;
+            color: white; font-weight: bold; letter-spacing: 1px;
+        }
+
+        /* --- OVERLAY MENU (Plein écran) --- */
+        .menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #080808; /* Fond noir */
+            z-index: 999; /* Juste sous la navbar */
+            display: flex; flex-direction: column; justify-content: space-between;
+            padding: 100px 50px 50px 50px;
+            
+            /* Caché par défaut pour l'animation GSAP */
+            opacity: 0; visibility: hidden; 
+        }
+
+        /* Langues (Haut Gauche) */
+        .menu-top { display: flex; opacity: 0; transform: translateY(-20px); }
+        .lang-switch a { text-decoration: none; color: #666; font-size: 1rem; transition: color 0.3s; }
+        .lang-switch a.active, .lang-switch a:hover { color: white; }
+        .sep { color: #444; margin: 0 5px; }
+
+        /* Liens (Centre) */
+        .menu-links-container {
+            width: 100%; max-width: 1000px; margin: 0 auto;
+            display: flex; flex-direction: column;
+        }
+
+        .menu-line {
+            width: 100%; height: 1px; background: rgba(255,255,255,0.1);
+            transform: scaleX(0); transform-origin: left; /* Pour anim */
+        }
+
+        .menu-link-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 0; text-decoration: none; color: white;
+            text-transform: uppercase; font-size: 4vw; /* Responsive gros texte */
+            opacity: 0; transform: translateY(30px); /* Pour anim */
+            transition: color 0.3s;
+        }
+        
+        .menu-link-item:hover { color: #ccc; }
+        
+        .link-number { font-size: 1rem; color: #444; font-weight: normal; }
+
+        /* Mentions légales (Bas) */
+        .menu-bottom {
+            display: flex; gap: 30px; font-size: 0.8rem; color: #666;
+            text-transform: uppercase; opacity: 0; transform: translateY(20px);
+        }
+        .menu-bottom a { text-decoration: none; color: #666; transition: color 0.3s; }
+        .menu-bottom a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .fixed-navbar { padding: 20px; }
+            .menu-overlay { padding: 80px 20px 30px 20px; }
+            .menu-link-item { font-size: 2.5rem; }
+        }

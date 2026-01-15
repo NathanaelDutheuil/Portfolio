@@ -1,0 +1,197 @@
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #080808;
+            color: white;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* J'AI SUPPRIMÉ LE RIDEAU NOIR ICI POUR ÉVITER LE BLOCAGE */
+
+        .bg-text {
+            position: fixed; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18vw; font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            pointer-events: none; z-index: 0;
+            white-space: nowrap;
+        }
+
+        .contact-section {
+            width: 100%; min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            position: relative; z-index: 1;
+            padding: 50px 20px;
+        }
+
+        .page-title {
+            font-size: 4rem; text-transform: uppercase; margin-bottom: 60px;
+            letter-spacing: 5px; 
+            /* MODIFICATION : Visible par défaut */
+            opacity: 1; transform: none;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            width: 100%; max-width: 1200px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.02);
+            backdrop-filter: blur(10px);
+            position: relative; 
+            min-height: 600px;
+        }
+
+        /* --- COLONNE GAUCHE --- */
+        .form-col {
+            flex: 1.5; padding: 60px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        /* MODIFICATION : Visible par défaut */
+        .form-group { margin-bottom: 40px; opacity: 1; transform: none; }
+
+        label {
+            display: block; font-size: 0.8rem; text-transform: uppercase;
+            letter-spacing: 2px; color: #888; margin-bottom: 15px;
+        }
+
+        input, textarea {
+            width: 100%; background: transparent;
+            border: none; border-bottom: 1px solid #444;
+            color: white; font-size: 1.5rem; padding-bottom: 10px;
+            font-family: inherit; transition: border-color 0.3s;
+            border-radius: 0;
+        }
+
+        input:focus, textarea:focus { outline: none; border-bottom-color: white; }
+        textarea { resize: vertical; min-height: 100px; }
+
+        .submit-btn {
+            background: white; color: black; border: none;
+            padding: 15px 50px; font-size: 1rem; text-transform: uppercase;
+            letter-spacing: 2px; font-weight: bold; cursor: pointer;
+            border-radius: 50px; transition: transform 0.3s, background 0.3s;
+            margin-top: 20px; display: inline-block;
+        }
+        .submit-btn:hover { transform: scale(1.05); background: #ccc; }
+
+        /* MESSAGE DE SUCCÈS */
+        .success-message {
+            display: none;
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); text-align: center; width: 100%;
+        }
+        .success-title { font-size: 3rem; text-transform: uppercase; margin-bottom: 20px; color: white; letter-spacing: 3px; }
+        .success-desc { font-size: 1.2rem; color: #888; }
+        .check-icon { font-size: 4rem; color: #4CAF50; margin-bottom: 20px; display: block; }
+
+        /* --- COLONNE DROITE --- */
+        .social-col {
+            flex: 1; padding: 60px;
+            display: flex; flex-direction: column; justify-content: center;
+            gap: 30px;
+        }
+
+        /* MODIFICATION : Visible par défaut */
+        .social-link {
+            display: flex; align-items: center; gap: 20px;
+            text-decoration: none; color: white;
+            opacity: 1; transform: none; transition: transform 0.3s;
+        }
+        .social-link:hover { transform: translateX(10px); }
+
+        .icon-box {
+            width: 50px; height: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: flex; justify-content: center; align-items: center;
+            transition: all 0.3s;
+        }
+        .social-link:hover .icon-box { background: white; border-color: white; }
+        .social-link:hover .icon-box svg { fill: black; }
+        .icon-box svg { width: 20px; height: 20px; fill: white; transition: fill 0.3s; }
+        .social-text { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        @media (max-width: 900px) {
+            .contact-wrapper { flex-direction: column; min-height: auto; }
+            .form-col { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 30px; }
+            .social-col { padding: 40px; }
+            .page-title { font-size: 2.5rem; }
+            .bg-text { display: none; }
+        }
+/* --- NAVBAR FIXE --- */
+        .fixed-navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; /* Toujours au-dessus */
+            mix-blend-mode: difference; /* Astuce pour être visible sur blanc ET noir */
+        }
+
+        .nav-logo {
+            font-size: 1.2rem; font-weight: bold; text-transform: uppercase;
+            text-decoration: none; color: white; letter-spacing: 2px;
+        }
+
+        .menu-toggle {
+            cursor: pointer; display: flex; align-items: center; gap: 10px;
+            color: white; font-weight: bold; letter-spacing: 1px;
+        }
+
+        /* --- OVERLAY MENU (Plein écran) --- */
+        .menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #080808; /* Fond noir */
+            z-index: 999; /* Juste sous la navbar */
+            display: flex; flex-direction: column; justify-content: space-between;
+            padding: 100px 50px 50px 50px;
+            
+            /* Caché par défaut pour l'animation GSAP */
+            opacity: 0; visibility: hidden; 
+        }
+
+        /* Langues (Haut Gauche) */
+        .menu-top { display: flex; opacity: 0; transform: translateY(-20px); }
+        .lang-switch a { text-decoration: none; color: #666; font-size: 1rem; transition: color 0.3s; }
+        .lang-switch a.active, .lang-switch a:hover { color: white; }
+        .sep { color: #444; margin: 0 5px; }
+
+        /* Liens (Centre) */
+        .menu-links-container {
+            width: 100%; max-width: 1000px; margin: 0 auto;
+            display: flex; flex-direction: column;
+        }
+
+        .menu-line {
+            width: 100%; height: 1px; background: rgba(255,255,255,0.1);
+            transform: scaleX(0); transform-origin: left; /* Pour anim */
+        }
+
+        .menu-link-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 0; text-decoration: none; color: white;
+            text-transform: uppercase; font-size: 4vw; /* Responsive gros texte */
+            opacity: 0; transform: translateY(30px); /* Pour anim */
+            transition: color 0.3s;
+        }
+        
+        .menu-link-item:hover { color: #ccc; }
+        
+        .link-number { font-size: 1rem; color: #444; font-weight: normal; }
+
+        /* Mentions légales (Bas) */
+        .menu-bottom {
+            display: flex; gap: 30px; font-size: 0.8rem; color: #666;
+            text-transform: uppercase; opacity: 0; transform: translateY(20px);
+        }
+        .menu-bottom a { text-decoration: none; color: #666; transition: color 0.3s; }
+        .menu-bottom a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .fixed-navbar { padding: 20px; }
+            .menu-overlay { padding: 80px 20px 30px 20px; }
+            .menu-link-item { font-size: 2.5rem; }
+        }

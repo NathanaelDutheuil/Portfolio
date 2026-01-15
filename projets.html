@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./src/projets.css" />
+
+    
+</head>
+<body>
+    <nav class="fixed-navbar">
+        <a href="index.html" class="nav-logo">DUTHEUIL NATHANAEL</a>
+        <div class="menu-toggle">
+            <span class="menu-text">MENU</span>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay">
+        
+        <div class="menu-top">
+            <div class="lang-switch">
+                <a href="#" class="active"></a>
+                <span class="sep"></span>
+                <a href="#"></a>
+            </div>
+        </div>
+
+        <div class="menu-links-container">
+            <div class="menu-line"></div> <a href="index.html" class="menu-link-item">
+                <span class="link-number">01</span>
+                <span class="link-text">Accueil</span>
+            </a>
+            <div class="menu-line"></div>
+
+            <a href="about.html" class="menu-link-item">
+                <span class="link-number">02</span>
+                <span class="link-text">À Propos</span>
+            </a>
+            <div class="menu-line"></div>
+
+            <a href="projets.html" class="menu-link-item">
+                <span class="link-number">03</span>
+                <span class="link-text">Projets</span>
+            </a>
+            <div class="menu-line"></div>
+
+            <a href="contact.html" class="menu-link-item">
+                <span class="link-number">04</span>
+                <span class="link-text">Contact</span>
+            </a>
+            <div class="menu-line"></div>
+        </div>
+
+        <div class="menu-bottom">
+            <a href="#">Mentions Légales</a>
+            <a href="#">Politique de Confidentialité</a>
+        </div>
+    </div>
+
+    <div class="loader-curtain"></div>
+    <div class="bg-text">SELECTED WORKS</div>
+
+    <header class="projects-header">
+        <h1 class="page-title">Projets</h1>
+        <p class="page-subtitle">Une sélection de mes travaux récents.<br>Expériences web, interfaces 3D et designs interactifs.</p>
+    </header>
+
+    <section class="projects-grid">
+        
+        <article class="project-card">
+            <div class="card-image">
+                <img src="./public/image/PORTFOLIO.png" alt="Projet 1">
+            </div>
+            <div class="card-content">
+                <h2 class="project-title">Portfolio 2026</h2>
+                <p class="project-desc">Le site sur lequel vous naviguez. Une expérimentation personnelle qui ma conduit a utilisé de nouvelles compétences.</p>
+                <div class="project-tags">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Three.js</span>
+                    <span class="tag">GSAP</span>
+                </div>
+                <div class="card-links">
+                    <a href="https://github.com/ton-pseudo/ton-repo" target="_blank" class="btn-link">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Code Source
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="card-image">
+                <img src="./public/image/URBEX.png" alt="Projet 2">
+            </div>
+            <div class="card-content">
+                <h2 class="project-title">Site "Blog"</h2>
+                <p class="project-desc">Proposer un site de présentation d'un paysage, d'une activité en proposant un design moderne.</p>
+                <div class="project-tags">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <div class="card-links">
+                    <a href="#" target="_blank" class="btn-link">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Code Source
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="card-image">
+                <img src="./public/image/ATE.png" alt="Projet 3">
+            </div>
+            <div class="card-content">
+                <h2 class="project-title">Refonte Graphique</h2>
+                <p class="project-desc">Refonte du site de L'ATE dans le but de leur proposer un design moderne et responsive.</p>
+                <div class="project-tags">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+                <div class="card-links">
+                    <a href="#" target="_blank" class="btn-link">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Code Source
+                    </a>
+                </div>
+            </div>
+        </article>
+
+    </section>
+
+    <footer class="massive-footer">
+        
+        <div class="footer-nav">
+            <a href="about.html">A propos</a>
+            <a href="projets.html">Projets</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-name">
+            DUTHEUIL NATHANAEL
+        </div>
+
+        <div class="footer-socials">
+            <a target="_blank" href="https://www.linkedin.com/in/nathanaël-dutheuil-079255331/">LinkedIn</a>
+            <a target="_blank" href="https://github.com/NathanaelDutheuil?tab=repositories">GitHub</a>
+            <a target="_blank" href="https://www.instagram.com/nat.dtl/">Instagram</a>
+        </div>
+
+        <div class="footer-email">
+            EMAIL : nathanaeldutheuil@gmail.com
+        </div>
+
+        <div class="footer-headline">
+            FULLSTACK DEVELOPPEUR
+        </div>
+
+        <div class="footer-bottom">
+            <span>2026 All rights reserved. DUTHEUIL</span>
+            <span>WEBSITE DESIGN</span>
+        </div>
+
+    </footer>
+
+
+    <script>
+        window.addEventListener("load", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Lever le rideau
+            gsap.to(".loader-curtain", {
+                opacity: 0, duration: 1, delay: 0.2, 
+                onComplete: () => { 
+                    const curtain = document.querySelector(".loader-curtain");
+                    if(curtain) curtain.remove(); 
+                }
+            });
+
+            // 2. Animation Intro (Titre et sous-titre)
+            const tl = gsap.timeline({ delay: 0.5 });
+            tl.to(".page-title", { opacity: 1, y: 0, duration: 1, ease: "power2.out" });
+            tl.to(".page-subtitle", { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.7");
+
+            // 3. Animation des Cartes Projets (Apparition au scroll)
+            gsap.utils.toArray(".project-card").forEach((card, i) => {
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%", // Déclenche quand le haut de la carte est à 85% de l'écran
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    delay: i * 0.1 // Petit décalage pour effet cascade
+                });
+            });
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menuText = document.querySelector('.menu-text');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            
+            const menuTl = gsap.timeline({ paused: true });
+
+            menuTl
+                .to(menuOverlay, { autoAlpha: 1, duration: 0.5 })
+                .to(".menu-top", { opacity: 1, y: 0, duration: 0.5 }, "-=0.3")
+                .to(".menu-line", { scaleX: 1, duration: 0.8, ease: "power2.out", stagger: 0.1 }, "-=0.3")
+                .to(".menu-link-item", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1 }, "-=0.8")
+                .to(".menu-bottom", { opacity: 1, y: 0, duration: 0.5 }, "-=0.6");
+
+            let isMenuOpen = false;
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    if (!isMenuOpen) {
+                        menuTl.play();
+                        menuText.textContent = "CLOSE"; 
+                        isMenuOpen = true;
+                    } else {
+                        menuTl.reverse();
+                        menuText.textContent = "MENU";
+                        isMenuOpen = false;
+                    }
+                });
+            }
+        });
+    </script>
+    
+</body>
+</html>

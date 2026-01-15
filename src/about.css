@@ -1,0 +1,282 @@
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #080808;
+            color: white;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* --- RIDEAU DE CHARGEMENT --- */
+        .loader-curtain {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #080808; z-index: 9999;
+        }
+        
+        .bg-text {
+            position: fixed; 
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 15vw; font-weight: 900;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none; z-index: 0;
+        }
+
+        /* --- SECTION 1 : INTRO --- */
+        .about-section {
+            width: 100%; height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            position: relative; z-index: 1;
+        }
+
+        .image-wrapper {
+            width: 250px; height: 350px; margin-bottom: 50px;
+            overflow: hidden; position: relative; z-index: 2;
+        }
+        
+        .profile-img {
+            width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);
+        }
+
+        .scramble-text {
+            font-size: 1.5rem; max-width: 600px; text-align: center;
+            line-height: 1.6; position: relative; z-index: 2;
+        }
+
+        .char { 
+            display: inline-block; min-width: 8px;
+            will-change: transform, opacity; opacity: 0; 
+        }
+
+        /* --- SECTIONS CONTENU --- */
+        .content-section {
+            width: 100%; min-height: 80vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            position: relative; z-index: 2;
+            background-color: #080808;
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-size: 4rem; text-transform: uppercase;
+            margin-bottom: 60px; letter-spacing: 5px;
+            opacity: 0; transform: translateY(50px);
+        }
+
+        /* Styles Compétences */
+        .skills-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+            max-width: 800px;
+        }
+
+        .skill-tag {
+            padding: 15px 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            opacity: 0; transform: translateY(30px);
+        }
+
+        .skill-tag:hover {
+            background: white; color: black; border-color: white; transform: scale(1.1);
+        }
+
+        /* Styles Parcours */
+        .timeline {
+            max-width: 800px; width: 100%; position: relative;
+            padding-left: 30px; border-left: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .timeline-item {
+            margin-bottom: 60px; position: relative;
+            opacity: 0; transform: translateX(-30px);
+        }
+
+        .timeline-item::before {
+            content: ''; position: absolute; left: -36px; top: 5px;
+            width: 10px; height: 10px; background: white; border-radius: 50%;
+        }
+
+        .year { font-size: 1rem; color: #888; margin-bottom: 10px; }
+        .diploma { font-size: 2rem; font-weight: bold; margin-bottom: 10px; }
+        .school { font-size: 1.2rem; font-style: italic; color: #ccc; }
+        .cv-container {
+            margin-top: 40px;
+            z-index: 2;
+            opacity: 0; transform: translateY(20px); /* Pour l'animation GSAP */
+        }
+
+        .btn-cv {
+            display: inline-flex; align-items: center; gap: 15px;
+            padding: 15px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            text-decoration: none; color: white;
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        /* Effet Hover (Survol) */
+        .btn-cv:hover {
+            background: white;
+            color: black;
+            border-color: white;
+            transform: scale(1.05); /* Léger grossissement */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Petit glow */
+        }
+
+        /* L'icône (Flèche) */
+        .btn-cv svg {
+            width: 18px; height: 18px;
+            fill: white; transition: fill 0.3s ease;
+        }
+
+        .btn-cv:hover svg {
+            fill: black; /* L'icône devient noire au survol */
+        }
+        /* --- NOUVEAU FOOTER MASSIVE --- */
+        .massive-footer {
+            background-color: #080808;
+            color: white;
+            padding: 100px 5vw 30px 5vw; /* Marges responsive */
+            display: flex; flex-direction: column; align-items: center;
+            position: relative; z-index: 2;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        /* Navigation haut */
+        .footer-nav {
+            display: flex; gap: 40px; margin-bottom: 60px;
+            font-size: 0.9rem; letter-spacing: 1px; color: #aaa;
+            text-transform: uppercase;
+        }
+        .footer-nav a { color: #aaa; text-decoration: none; transition: color 0.3s;}
+        .footer-nav a:hover { color: white; }
+
+        /* Le Nom Géant */
+        .footer-name {
+            font-size: 8vw; /* Taille énorme responsive */
+            font-weight: 900; /* Très gras */
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: -2px; /* Lettres serrées comme sur l'image */
+            font-family: 'Impact', 'Arial Black', sans-serif; /* Police condensée */
+        }
+
+        /* Liens sociaux sous le nom */
+        .footer-socials {
+            display: flex; gap: 40px; margin-bottom: 20px;
+            text-transform: uppercase; font-size: 1rem; text-decoration: underline;
+        }
+        .footer-socials a { color: white; text-decoration: none; border-bottom: 1px solid white;}
+
+        /* Email */
+        .footer-email {
+            font-size: 1.2rem; font-weight: bold; text-transform: uppercase;
+            margin-bottom: 80px; letter-spacing: 1px;
+        }
+
+        /* Le titre géant du bas */
+        .footer-headline {
+            font-size: 7vw; /* Prend toute la largeur */
+            font-weight: 400;
+            color: #ccc;
+            text-transform: uppercase;
+            line-height: 1;
+            white-space: nowrap; /* Empêche le retour à la ligne */
+            margin-bottom: 80px;
+        }
+
+        /* Barre du bas */
+        .footer-bottom {
+            width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.8rem; color: #666;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+        }
+
+        .lang-btn {
+            border: 1px solid #444; padding: 5px 15px; border-radius: 20px;
+            color: white; text-decoration: none;
+        }
+/* --- NAVBAR FIXE --- */
+        .fixed-navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; /* Toujours au-dessus */
+            mix-blend-mode: difference; /* Astuce pour être visible sur blanc ET noir */
+        }
+
+        .nav-logo {
+            font-size: 1.2rem; font-weight: bold; text-transform: uppercase;
+            text-decoration: none; color: white; letter-spacing: 2px;
+        }
+
+        .menu-toggle {
+            cursor: pointer; display: flex; align-items: center; gap: 10px;
+            color: white; font-weight: bold; letter-spacing: 1px;
+        }
+
+        /* --- OVERLAY MENU (Plein écran) --- */
+        .menu-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #080808; /* Fond noir */
+            z-index: 999; /* Juste sous la navbar */
+            display: flex; flex-direction: column; justify-content: space-between;
+            padding: 100px 50px 50px 50px;
+            
+            /* Caché par défaut pour l'animation GSAP */
+            opacity: 0; visibility: hidden; 
+        }
+
+        /* Langues (Haut Gauche) */
+        .menu-top { display: flex; opacity: 0; transform: translateY(-20px); }
+        .lang-switch a { text-decoration: none; color: #666; font-size: 1rem; transition: color 0.3s; }
+        .lang-switch a.active, .lang-switch a:hover { color: white; }
+        .sep { color: #444; margin: 0 5px; }
+
+        /* Liens (Centre) */
+        .menu-links-container {
+            width: 100%; max-width: 1000px; margin: 0 auto;
+            display: flex; flex-direction: column;
+        }
+
+        .menu-line {
+            width: 100%; height: 1px; background: rgba(255,255,255,0.1);
+            transform: scaleX(0); transform-origin: left; /* Pour anim */
+        }
+
+        .menu-link-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 0; text-decoration: none; color: white;
+            text-transform: uppercase; font-size: 4vw; /* Responsive gros texte */
+            opacity: 0; transform: translateY(30px); /* Pour anim */
+            transition: color 0.3s;
+        }
+        
+        .menu-link-item:hover { color: #ccc; }
+        
+        .link-number { font-size: 1rem; color: #444; font-weight: normal; }
+
+        /* Mentions légales (Bas) */
+        .menu-bottom {
+            display: flex; gap: 30px; font-size: 0.8rem; color: #666;
+            text-transform: uppercase; opacity: 0; transform: translateY(20px);
+        }
+        .menu-bottom a { text-decoration: none; color: #666; transition: color 0.3s; }
+        .menu-bottom a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .fixed-navbar { padding: 20px; }
+            .menu-overlay { padding: 80px 20px 30px 20px; }
+            .menu-link-item { font-size: 2.5rem; }
+        }
