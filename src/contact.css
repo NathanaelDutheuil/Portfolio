@@ -257,8 +257,21 @@
             }
         }
         @media (max-width: 768px) {
-            .fixed-navbar { padding: 20px; }
-            .menu-overlay { padding: 80px 20px 30px 20px; }
-            .menu-link-item { font-size: 2.5rem; }
+            .fixed-navbar { 
+                /* réduire les paddings sur petits écrans pour éviter débordement */
+                padding: 20px 16px;
+            }
+            .menu-overlay { 
+                /* réduire le padding top encore plus sur petits écrans */
+                padding: 60px 20px 30px 20px; 
+            }
+            .menu-link-item { 
+                font-size: 2.5rem; 
+            }
 
+            /* si l'espace est vraiment limité, réduire la taille du logo / bouton */
+            .nav-logo { font-size: 1rem; }
+            .menu-toggle { font-size: 0.95rem; gap: 8px; }
         }
+
+
