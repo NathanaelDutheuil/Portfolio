@@ -95,10 +95,21 @@ h1 {
         }
 
         /* Langues (Haut Gauche) */
-        .menu-top { display: flex; opacity: 0; transform: translateY(-20px); }
-        .lang-switch a { text-decoration: none; color: #666; font-size: 1rem; transition: color 0.3s; }
-        .lang-switch a.active, .lang-switch a:hover { color: white; }
-        .sep { color: #444; margin: 0 5px; }
+        .menu-top { 
+            display: flex; opacity: 0; transform: translateY(-20px); 
+        }
+        .lang-switch a { 
+            text-decoration: none; 
+            color: #666; 
+            font-size: 1rem; 
+            transition: color 0.3s; 
+        }
+        .lang-switch a.active, .lang-switch a:hover { 
+            color: white; 
+        }
+        .sep { 
+            color: #444; margin: 0 5px; 
+        }
 
         /* Liens (Centre) */
         .menu-links-container {
@@ -119,7 +130,9 @@ h1 {
             transition: color 0.3s;
         }
         
-        .menu-link-item:hover { color: #ccc; }
+        .menu-link-item:hover { 
+            color: #ccc; 
+        }
         
         .link-number { font-size: 1rem; color: #444; font-weight: normal; }
 
@@ -128,13 +141,24 @@ h1 {
             display: flex; gap: 30px; font-size: 0.8rem; color: #666;
             text-transform: uppercase; opacity: 0; transform: translateY(20px);
         }
-        .menu-bottom a { text-decoration: none; color: #666; transition: color 0.3s; }
-        .menu-bottom a:hover { color: white; }
+        .menu-bottom a {
+            text-decoration: none; color: #666; transition: color 0.3s; 
+        }
+        .menu-bottom a:hover { 
+            color: white; 
+        }
 
         @media (max-width: 768px) {
-            .fixed-navbar { padding: 20px; }
-            .menu-overlay { padding: 80px 20px 30px 20px; }
-            .menu-link-item { font-size: 2.5rem; }
+            .fixed-navbar { 
+                padding: 20px; 
+            }
+            .menu-overlay { 
+                padding: 80px 20px 30px 20px; 
+            }
+            .menu-link-item { 
+                font-size: 2.5rem; 
+            }
 
         }
+
 
