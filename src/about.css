@@ -65,7 +65,19 @@
             margin-bottom: 60px; letter-spacing: 5px;
             opacity: 0; transform: translateY(50px);
         }
+.about-container, .project-description {
+    width: 100%;        
+    max-width: 800px;     
+    margin: 0 auto;      
+    padding: 0 20px;       
+    box-sizing: border-box; 
+}
 
+
+p {
+    padding: 0 15px;      /
+    text-align: justify; 
+}
         /* Styles Compétences */
         .skills-grid {
             display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
@@ -361,6 +373,7 @@
         font-size: 2.5rem !important;
     }
 }
+
 
 
 
