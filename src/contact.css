@@ -8,7 +8,6 @@
             overflow-x: hidden;
         }
 
-        /* J'AI SUPPRIMÉ LE RIDEAU NOIR ICI POUR ÉVITER LE BLOCAGE */
 
         .bg-text {
             position: fixed; top: 50%; left: 50%;
@@ -30,7 +29,6 @@
         .page-title {
             font-size: 4rem; text-transform: uppercase; margin-bottom: 60px;
             letter-spacing: 5px; 
-            /* MODIFICATION : Visible par défaut */
             opacity: 1; transform: none;
         }
 
@@ -50,8 +48,6 @@
             border-right: 1px solid rgba(255,255,255,0.1);
             position: relative;
         }
-
-        /* MODIFICATION : Visible par défaut */
         .form-group { margin-bottom: 40px; opacity: 1; transform: none; }
 
         label {
@@ -96,7 +92,6 @@
             gap: 30px;
         }
 
-        /* MODIFICATION : Visible par défaut */
         .social-link {
             display: flex; align-items: center; gap: 20px;
             text-decoration: none; color: white;
@@ -127,8 +122,8 @@
             position: fixed; top: 0; left: 0; width: 100%;
             padding: 30px 50px;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; /* Toujours au-dessus */
-            mix-blend-mode: difference; /* Astuce pour être visible sur blanc ET noir */
+            z-index: 1000;
+            mix-blend-mode: difference;
         }
 
         .nav-logo {
@@ -144,16 +139,13 @@
         /* --- OVERLAY MENU (Plein écran) --- */
         .menu-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #080808; /* Fond noir */
-            z-index: 999; /* Juste sous la navbar */
+            background-color: #080808; 
+            z-index: 999;
             display: flex; flex-direction: column; justify-content: space-between;
             padding: 100px 50px 50px 50px;
-            
-            /* Caché par défaut pour l'animation GSAP */
             opacity: 0; visibility: hidden; 
         }
 
-        /* Langues (Haut Gauche) */
         .menu-top { display: flex; opacity: 0; transform: translateY(-20px); }
         .lang-switch a { text-decoration: none; color: #666; font-size: 1rem; transition: color 0.3s; }
         .lang-switch a.active, .lang-switch a:hover { color: white; }
@@ -167,14 +159,14 @@
 
         .menu-line {
             width: 100%; height: 1px; background: rgba(255,255,255,0.1);
-            transform: scaleX(0); transform-origin: left; /* Pour anim */
+            transform: scaleX(0); transform-origin: left;
         }
 
         .menu-link-item {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 0; text-decoration: none; color: white;
-            text-transform: uppercase; font-size: 4vw; /* Responsive gros texte */
-            opacity: 0; transform: translateY(30px); /* Pour anim */
+            text-transform: uppercase; font-size: 4vw; 
+            opacity: 0; transform: translateY(30px); 
             transition: color 0.3s;
         }
         
@@ -192,85 +184,85 @@
 /* --- RESPONSIVE MENU (MOBILE) --- */
         @media (max-width: 768px) {
             
-            /* 1. L'Overlay : On autorise le scroll et on réduit les marges */
+          
             .menu-overlay {
-                padding: 80px 20px 30px 20px; /* Moins de marge sur les côtés */
-                display: block; /* On enlève le flex space-between pour éviter les bugs */
-                overflow-y: auto; /* Permet de scroller si le téléphone est petit */
+                padding: 80px 20px 30px 20px; 
+                display: block; 
+                overflow-y: auto; 
             }
 
-            /* 2. Le Switch de Langue (Haut) */
             .menu-top {
-                margin-bottom: 40px; /* Espace avant les liens */
-                justify-content: flex-end; /* On le met à droite ou gauche selon ton goût */
+                margin-bottom: 40px;
+                justify-content: flex-end; 
             }
 
-            /* 3. Les Liens Principaux (Le cœur du design) */
+           
             .menu-link-item {
-                font-size: 12vw; /* ÉNORME : Prend 12% de la largeur de l'écran */
-                padding: 15px 0; /* Espace tactile confortable */
-                font-weight: 900; /* Plus gras pour l'impact */
+                font-size: 12vw;
+                padding: 15px 0;
+                font-weight: 900; 
                 line-height: 1.1;
             }
 
             .link-number {
-                font-size: 1rem; /* Les numéros restent discrets */
+                font-size: 1rem;
                 margin-right: 15px;
                 color: #444;
             }
 
-            /* 4. Les lignes de séparation */
+    
             .menu-line {
-                background: rgba(255,255,255,0.2); /* Un peu plus visible sur mobile */
+                background: rgba(255,255,255,0.2); 
             }
 
-            /* 5. Le Footer du Menu (Mentions légales) */
+    
             .menu-bottom {
-                margin-top: 60px; /* Espace après les liens */
-                flex-direction: column; /* On empile les liens l'un sous l'autre */
+                margin-top: 60px;
+                flex-direction: column; 
                 gap: 15px;
                 align-items: flex-start;
-                padding-bottom: 50px; /* Espace pour scroller jusqu'au bout */
+                padding-bottom: 50px;
             }
 
             .menu-bottom a {
                 font-size: 0.9rem;
-                padding: 5px 0; /* Facile à cliquer */
+                padding: 5px 0;
             }
             
-            /* 6. Ajustement du bouton Burger */
+       
             .menu-toggle {
-                z-index: 1001; /* S'assure qu'il est toujours au-dessus */
+                z-index: 1001; 
             }
             
         }
 
-        /* --- FIX POUR ÉCRANS PAYSAGE (Smartphones couchés) --- */
+
         @media (max-height: 500px) {
             .menu-overlay {
                 padding-top: 60px;
             }
             .menu-link-item {
-                font-size: 1.5rem; /* Plus petit en mode paysage */
+                font-size: 1.5rem;
             }
         }
         @media (max-width: 768px) {
             .fixed-navbar { 
-                /* réduire les paddings sur petits écrans pour éviter débordement */
+        
                 padding: 20px 16px;
             }
             .menu-overlay { 
-                /* réduire le padding top encore plus sur petits écrans */
+          
                 padding: 60px 20px 30px 20px; 
             }
             .menu-link-item { 
                 font-size: 2.5rem; 
             }
 
-            /* si l'espace est vraiment limité, réduire la taille du logo / bouton */
+
             .nav-logo { font-size: 1rem; }
             .menu-toggle { font-size: 0.95rem; gap: 8px; }
         }
+
 
 
 
