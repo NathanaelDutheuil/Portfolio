@@ -175,7 +175,6 @@
         window.addEventListener("load", () => {
             gsap.registerPlugin(ScrollTrigger);
 
-            // 1. Lever le rideau
             gsap.to(".loader-curtain", {
                 opacity: 0, duration: 1, delay: 0.2, 
                 onComplete: () => { 
@@ -184,23 +183,21 @@
                 }
             });
 
-            // 2. Animation Intro (Titre et sous-titre)
             const tl = gsap.timeline({ delay: 0.5 });
             tl.to(".page-title", { opacity: 1, y: 0, duration: 1, ease: "power2.out" });
             tl.to(".page-subtitle", { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.7");
 
-            // 3. Animation des Cartes Projets (Apparition au scroll)
             gsap.utils.toArray(".project-card").forEach((card, i) => {
                 gsap.to(card, {
                     scrollTrigger: {
                         trigger: card,
-                        start: "top 85%", // Déclenche quand le haut de la carte est à 85% de l'écran
+                        start: "top 85%",
                     },
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
                     ease: "power2.out",
-                    delay: i * 0.1 // Petit décalage pour effet cascade
+                    delay: i * 0.1
                 });
             });
             const menuToggle = document.querySelector('.menu-toggle');
@@ -237,3 +234,4 @@
 </body>
 
 </html>
+
