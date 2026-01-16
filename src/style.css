@@ -6,6 +6,14 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Appliquer box-sizing globalement pour que padding n'augmente pas la taille au-delà de 100vh */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .webgl {
     position: fixed;
     top: 0;
@@ -101,11 +109,18 @@ h1 {
 
         /* --- OVERLAY MENU (Plein écran) --- */
         .menu-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%;
+            /* Utiliser min-height:100vh + box-sizing:border-box pour que le padding ne fasse pas "déborder" */
+            min-height: 100vh;
             background-color: #080808; /* Fond noir */
             z-index: 999; /* Juste sous la navbar */
             display: flex; flex-direction: column; justify-content: space-between;
-            padding: 100px 50px 50px 50px;
+            padding: 80px 50px 50px 50px; /* réduit le top padding pour rapprocher Accueil */
+            box-sizing: border-box;
+
+            /* Permettre le scroll si le contenu dépasse (utile pour petits écrans) */
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             
             /* Caché par défaut pour l'animation GSAP */
             opacity: 0; visibility: hidden; 
@@ -171,7 +186,8 @@ h1 {
                 padding: 20px 16px;
             }
             .menu-overlay { 
-                padding: 80px 20px 30px 20px; 
+                /* réduire le padding top encore plus sur petits écrans */
+                padding: 60px 20px 30px 20px; 
             }
             .menu-link-item { 
                 font-size: 2.5rem; 
