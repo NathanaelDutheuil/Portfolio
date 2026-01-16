@@ -270,9 +270,7 @@
             .menu-toggle {
                 z-index: 1001; /* S'assure qu'il est toujours au-dessus */
             }
-            .menu-text {
-                display: none; /* Optionnel : On cache le mot "MENU" pour gagner de la place, on garde juste l'icône */
-            }
+           
         }
 
         /* --- FIX POUR ÉCRANS PAYSAGE (Smartphones couchés) --- */
@@ -303,4 +301,5 @@
         }
 
         
+
 
