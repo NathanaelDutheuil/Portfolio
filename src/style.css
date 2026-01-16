@@ -65,21 +65,38 @@ h1 {
 }
 /* --- NAVBAR FIXE --- */
         .fixed-navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
+            position: fixed; top: 0; left: 0; right: 0;
             padding: 30px 50px;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; /* Toujours au-dessus */
             mix-blend-mode: difference; /* Astuce pour être visible sur blanc ET noir */
+            box-sizing: border-box; /* s'assurer que le padding est inclus dans la largeur */
+            /* en cas de petits écrans, autoriser que la navbar s'adapte */
+        }
+
+        /* Permettre aux éléments flex de se réduire correctement */
+        .fixed-navbar > * {
+            min-width: 0;
         }
 
         .nav-logo {
             font-size: 1.2rem; font-weight: bold; text-transform: uppercase;
             text-decoration: none; color: white; letter-spacing: 2px;
+            /* éviter que le logo force l'élargissement */
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .menu-toggle {
             cursor: pointer; display: flex; align-items: center; gap: 10px;
             color: white; font-weight: bold; letter-spacing: 1px;
+            /* autoriser le rétrécissement et masquer le débordement si le texte est trop long */
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* --- OVERLAY MENU (Plein écran) --- */
@@ -150,7 +167,8 @@ h1 {
 
         @media (max-width: 768px) {
             .fixed-navbar { 
-                padding: 20px; 
+                /* réduire les paddings sur petits écrans pour éviter débordement */
+                padding: 20px 16px;
             }
             .menu-overlay { 
                 padding: 80px 20px 30px 20px; 
@@ -159,6 +177,7 @@ h1 {
                 font-size: 2.5rem; 
             }
 
+            /* si l'espace est vraiment limité, réduire la taille du logo / bouton */
+            .nav-logo { font-size: 1rem; }
+            .menu-toggle { font-size: 0.95rem; gap: 8px; }
         }
-
-
