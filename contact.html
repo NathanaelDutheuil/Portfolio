@@ -124,18 +124,14 @@
 
     <script>
         window.addEventListener("load", () => {
-            // VERIFICATION : Si GSAP n'est pas là, on ne fait rien (pas de crash)
             if (typeof gsap !== "undefined") {
                 
                 const tl = gsap.timeline({ delay: 0.2 });
 
-                // On utilise FROM pour animer "depuis" l'invisible vers le visible
-                // C'est beaucoup plus sûr : si JS plante, les éléments sont DÉJÀ visibles.
                 tl.from(".page-title", { opacity: 0, y: 30, duration: 1, ease: "power2.out" });
                 tl.from(".form-group", { opacity: 0, y: 20, duration: 0.8, stagger: 0.2, ease: "power2.out" }, "-=0.5");
                 tl.from(".social-link", { opacity: 0, x: 30, duration: 0.8, stagger: 0.2, ease: "power2.out" }, "-=1");
 
-                // LOGIQUE AJAX FORMULAIRE
                 const form = document.getElementById("contact-form");
                 const successMessage = document.querySelector(".success-message");
                 
@@ -214,4 +210,5 @@
 </body>
 
 </html>
+
 
