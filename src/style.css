@@ -179,7 +179,73 @@ h1 {
         .menu-bottom a:hover { 
             color: white; 
         }
+/* --- RESPONSIVE MENU (MOBILE) --- */
+        @media (max-width: 768px) {
+            
+            /* 1. L'Overlay : On autorise le scroll et on réduit les marges */
+            .menu-overlay {
+                padding: 80px 20px 30px 20px; /* Moins de marge sur les côtés */
+                display: block; /* On enlève le flex space-between pour éviter les bugs */
+                overflow-y: auto; /* Permet de scroller si le téléphone est petit */
+            }
 
+            /* 2. Le Switch de Langue (Haut) */
+            .menu-top {
+                margin-bottom: 40px; /* Espace avant les liens */
+                justify-content: flex-end; /* On le met à droite ou gauche selon ton goût */
+            }
+
+            /* 3. Les Liens Principaux (Le cœur du design) */
+            .menu-link-item {
+                font-size: 12vw; /* ÉNORME : Prend 12% de la largeur de l'écran */
+                padding: 15px 0; /* Espace tactile confortable */
+                font-weight: 900; /* Plus gras pour l'impact */
+                line-height: 1.1;
+            }
+
+            .link-number {
+                font-size: 1rem; /* Les numéros restent discrets */
+                margin-right: 15px;
+                color: #444;
+            }
+
+            /* 4. Les lignes de séparation */
+            .menu-line {
+                background: rgba(255,255,255,0.2); /* Un peu plus visible sur mobile */
+            }
+
+            /* 5. Le Footer du Menu (Mentions légales) */
+            .menu-bottom {
+                margin-top: 60px; /* Espace après les liens */
+                flex-direction: column; /* On empile les liens l'un sous l'autre */
+                gap: 15px;
+                align-items: flex-start;
+                padding-bottom: 50px; /* Espace pour scroller jusqu'au bout */
+            }
+
+            .menu-bottom a {
+                font-size: 0.9rem;
+                padding: 5px 0; /* Facile à cliquer */
+            }
+            
+            /* 6. Ajustement du bouton Burger */
+            .menu-toggle {
+                z-index: 1001; /* S'assure qu'il est toujours au-dessus */
+            }
+            .menu-text {
+                display: none; /* Optionnel : On cache le mot "MENU" pour gagner de la place, on garde juste l'icône */
+            }
+        }
+
+        /* --- FIX POUR ÉCRANS PAYSAGE (Smartphones couchés) --- */
+        @media (max-height: 500px) {
+            .menu-overlay {
+                padding-top: 60px;
+            }
+            .menu-link-item {
+                font-size: 1.5rem; /* Plus petit en mode paysage */
+            }
+        }
         @media (max-width: 768px) {
             .fixed-navbar { 
                 /* réduire les paddings sur petits écrans pour éviter débordement */
@@ -197,3 +263,4 @@ h1 {
             .nav-logo { font-size: 1rem; }
             .menu-toggle { font-size: 0.95rem; gap: 8px; }
         }
+
