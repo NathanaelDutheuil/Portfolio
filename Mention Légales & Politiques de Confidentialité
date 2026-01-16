@@ -1,0 +1,104 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - Fundamentals</title>
+    <style>
+        body {
+            background-color: #080808;
+            color: #ccc;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 50px 20px;
+        }
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: white;
+            text-transform: uppercase;
+            font-size: 2rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        p { margin-bottom: 15px; }
+        strong { color: white; }
+        a { color: white; text-decoration: underline; }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: #666;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .back-btn:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="legal-container">
+        <a href="index.html" class="back-btn">← Retour au site</a>
+
+        <h1>Mentions Légales & Confidentialité</h1>
+
+        <h2>1. Éditeur du site</h2>
+        <p>
+            Le présent site est édité par :<br>
+            <strong>[TON PRÉNOM] [TON NOM]</strong><br>
+            Adresse : [TON ADRESSE, VILLE, CODE POSTAL]<br>
+            Email : <a href="mailto:[TON EMAIL]">[TON EMAIL]</a>
+        </p>
+
+        <h2>2. Hébergement</h2>
+        <p>
+            L'hébergement du site est assuré par :<br>
+            <strong>GitHub Inc.</strong><br>
+            88 Colin P. Kelly Jr Street<br>
+            San Francisco, CA 94107<br>
+            États-Unis<br>
+            Téléphone : +1 877-448-4820
+        </p>
+
+        <h2>3. Propriété intellectuelle</h2>
+        <p>
+            L’ensemble de ce site relève de la législation française et internationale sur le droit d’auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés. La reproduction de tout ou partie de ce site sur un support électronique quel qu’il soit est formellement interdite sauf autorisation expresse de l'auteur.
+        </p>
+        <p>
+            Crédits : Design et Développement par [TON NOM].
+        </p>
+
+        <h2>4. Données personnelles</h2>
+        <p>
+            Ce site respecte la vie privée de l'utilisateur et se conforme au RGPD.
+        </p>
+        <ul>
+            <li><strong>Collecte :</strong> Les seules données collectées sont celles fournies volontairement via le formulaire de contact (Nom, Email).</li>
+            <li><strong>Utilisation :</strong> Ces données servent uniquement à répondre aux demandes de contact. Elles ne sont jamais vendues ni cédées à des tiers.</li>
+            <li><strong>Droits :</strong> Vous disposez d'un droit d'accès, de modification et de suppression de vos données en contactant l'éditeur par email.</li>
+        </ul>
+
+        <h2>5. Cookies</h2>
+        <p>
+            Ce site n'utilise <strong>aucun cookie</strong>. Aucune donnée de traçage publicitaire ou d'analyse n'est stockée sur votre appareil lors de votre navigation.
+        </p>
+        
+        <h2>6. Statut Juridique</h2>
+        <p>
+            Statut : Particulier / Étudiant<br>
+            TVA non applicable, art. 293 B du CGI.
+        </p>
+
+    </div>
+
+</body>
+</html>
