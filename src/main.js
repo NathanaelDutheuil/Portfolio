@@ -52,7 +52,7 @@ const mouse = new THREE.Vector2();
 
 // --- CHARGEMENT DE L'ORDINATEUR ---
 const loader = new GLTFLoader();
-loader.load('./models/computer.glb', (gltf) => {
+loader.load('../public/models/computer.glb', (gltf) => {
     console.log("Modèle chargé !"); 
     computer = gltf.scene;
     computer.scale.set(1, 1, 1);
