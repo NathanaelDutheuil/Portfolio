@@ -49,15 +49,15 @@ body {
 @keyframes floatAndGlow {
     0% {
         transform: translate(-50%, 0);
-        box-shadow: 0 0 10px rgba(0, 238, 255, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     50% {
         transform: translate(-50%, -10px); 
-        box-shadow: 0 0 20px rgba(0, 238, 255, 0.5);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
     100% {
         transform: translate(-50%, 0);
-        box-shadow: 0 0 10px rgba(0, 238, 255, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 }
 .click-indicator.hidden {
