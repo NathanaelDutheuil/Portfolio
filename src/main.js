@@ -174,7 +174,7 @@ for(let i = 0; i < particlesCount * 3; i++) {
 particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 const particlesMaterial = new THREE.PointsMaterial({
     size: 0.05,
-    color: 0x000000,
+    color: 0xFFFFFF,
     transparent: true,
     opacity: 0.4,
 });
