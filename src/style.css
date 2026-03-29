@@ -22,28 +22,28 @@ body {
 }
 .click-indicator {
     position: absolute;
-    top: 70%; /* Ajuste selon la position de ton ordi à l'écran */
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     font-family: sans-serif;
     font-size: 1.2rem;
     letter-spacing: 2px;
-    pointer-events: none; /* Très important pour que le clic passe au travers et touche le canvas */
+    pointer-events: none;
     opacity: 0.8;
     animation: pulse 2s infinite;
     transition: opacity 0.3s ease;
     z-index: 10;
 }
 
-/* Animation de pulsation */
+
 @keyframes pulse {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
     50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; text-shadow: 0 0 10px rgba(0, 238, 255, 0.8); }
     100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
 }
 
-/* Classe qu'on ajoutera en JS pour cacher le texte */
+
 .hidden {
     opacity: 0 !important;
 }
