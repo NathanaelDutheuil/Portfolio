@@ -112,31 +112,40 @@ window.addEventListener('click', () => {
     }
 });
 const menuToggle = document.querySelector('.menu-toggle');
-            const menuText = document.querySelector('.menu-text');
-            const menuOverlay = document.querySelector('.menu-overlay');
-            
-            const menuTl = gsap.timeline({ paused: true });
+const menuText = document.querySelector('.menu-text');
+const menuOverlay = document.querySelector('.menu-overlay');
+const indicator = document.querySelector('.click-indicator');
+const menuTl = gsap.timeline({ paused: true });
 
-            menuTl
-                .to(menuOverlay, { autoAlpha: 1, duration: 0.5 }) 
-                .to(".menu-top", { opacity: 1, y: 0, duration: 0.5 }, "-=0.3")
-                .to(".menu-line", { scaleX: 1, duration: 0.8, ease: "power2.out", stagger: 0.1 }, "-=0.3")
-                .to(".menu-link-item", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1 }, "-=0.8")
-                .to(".menu-bottom", { opacity: 1, y: 0, duration: 0.5 }, "-=0.6");
+menuTl
+    .to(menuOverlay, { autoAlpha: 1, duration: 0.5 }) 
+    .to(".menu-top", { opacity: 1, y: 0, duration: 0.5 }, "-=0.3")
+    .to(".menu-line", { scaleX: 1, duration: 0.8, ease: "power2.out", stagger: 0.1 }, "-=0.3")
+    .to(".menu-link-item", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.1 }, "-=0.8")
+    .to(".menu-bottom", { opacity: 1, y: 0, duration: 0.5 }, "-=0.6");
 
-            let isMenuOpen = false;
+let isMenuOpen = false;
 
-            menuToggle.addEventListener('click', () => {
-                if (!isMenuOpen) {
-                    menuTl.play(); 
-                    menuText.textContent = "CLOSE"; 
-                    isMenuOpen = true;
-                } else {
-                    menuTl.reverse(); 
-                    menuText.textContent = "MENU";
-                    isMenuOpen = false;
-                }
-            });
+menuToggle.addEventListener('click', () => {
+    if (!isMenuOpen) {
+        menuTl.play(); 
+        menuText.textContent = "CLOSE"; 
+        isMenuOpen = true;
+        
+        if (indicator) {
+            indicator.classList.add('hidden');
+        }
+
+    } else {
+        menuTl.reverse(); 
+        menuText.textContent = "MENU";
+        isMenuOpen = false;
+
+        if (indicator && !isAnimating) {
+            indicator.classList.remove('hidden');
+        }
+    }
+});
 const floorGeometry = new THREE.PlaneGeometry(50, 50);
 const floorMaterial = new THREE.MeshStandardMaterial({
     color: '#080808', 
@@ -182,7 +191,6 @@ const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
 particlesMesh.position.set(0, 0, 0);
 scene.add(particlesMesh);
 // --- BOUCLE ---
-const indicator = document.querySelector('.click-indicator');
 
 function tick() {
     controls.update();
