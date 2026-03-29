@@ -85,6 +85,9 @@ window.addEventListener('click', () => {
         isAnimating = true;
         controls.enabled = false;
         document.body.style.cursor = 'wait';
+        
+        // NOUVEAU : On cache l'indicateur visuel
+        if(indicator) indicator.classList.add('hidden');
 
         gsap.to(camera.position, {
             x: 0,
@@ -179,11 +182,26 @@ const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
 particlesMesh.position.set(0, 0, 0);
 scene.add(particlesMesh);
 // --- BOUCLE ---
+const indicator = document.querySelector('.click-indicator');
+
 function tick() {
     controls.update();
+    
     if(particlesMesh) {
         particlesMesh.rotation.y += 0.001;
         particlesMesh.position.y += Math.sin(Date.now() * 0.001) * 0.002;
+    }
+
+    // NOUVEAU : Détection du survol pour changer le curseur
+    if (computer && !isAnimating) {
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObject(computer, true);
+
+        if (intersects.length > 0) {
+            document.body.style.cursor = 'pointer'; // Curseur "main"
+        } else {
+            document.body.style.cursor = 'default'; // Curseur normal
+        }
     }
 
     renderer.render(scene, camera);
